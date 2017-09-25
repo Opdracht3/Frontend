@@ -4,18 +4,18 @@ import { GamesService } from '../games.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './gamelist.component.html',
-  styleUrls: ['./gamelist.component.css']
+  templateUrl: './createGame.component.html',
+  styleUrls: ['./createGame.component.css']
 })
-export class Gamelist implements OnInit {
-  title = 'gameList';
-  games: Gamelist[];
+export class CreateGame implements OnInit {
+  title = 'createGame';
+  game: CreateGame;
   
    constructor(private router: Router, private gamesService: GamesService) {
   
    }
   
    ngOnInit() {
-     this.gamesService.getBikes().then(games => this.games = games);
+     this.gamesService.createGame("test").then(game => this.game = game);
    }
 }
