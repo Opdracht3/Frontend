@@ -5,13 +5,16 @@ import { HttpModule } from '@angular/http';
 import { Gamelist } from './gamelist/gamelist.component';
 import { GamesService } from './games.service';
 
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
 @NgModule({
   declarations: [
     Gamelist
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   bootstrap: [Gamelist],
   providers: [GamesService],

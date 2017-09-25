@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GamesService } from '../games.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class Gamelist implements OnInit {
   title = 'app';
   games: Gamelist[];
   
-   constructor(private gamesService: GamesService) {
+   constructor(private router: Router, private gamesService: GamesService) {
   
    }
   
