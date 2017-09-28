@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GamesService } from '../games.service';
+import { GamesService } from '../_services/games.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './createGame.component.html',
-  styleUrls: ['./createGame.component.css']
+  templateUrl: './createGame.component.html'
 })
 export class CreateGame implements OnInit {
   title = 'createGame';
