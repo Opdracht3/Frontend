@@ -6,7 +6,6 @@ import { BaseRequestOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers/index';
 import { GamesService, AlertService, AuthenticationService, UserService } from './_services/index';
 
 import { AppComponent } from './app.component';
@@ -24,14 +23,16 @@ import { RegisterComponent } from './register/index';
 
 /* Routing Module */
 import { AppRoutingModule } from './app.routing';
+import { LoggerModule, LoggerConfig, NgxLoggerLevel } from 'ngx-logger';
 
 
 @NgModule({
-  imports: [
-    BrowserModule,
+  imports: [ 
+    BrowserModule, 
     FormsModule, 
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.DEBUG} as LoggerConfig)
   ],
   declarations: [
     LoginComponent,
@@ -49,10 +50,6 @@ import { AppRoutingModule } from './app.routing';
     AlertService,
     AuthenticationService,
     UserService,
-    // providers used to create fake backend
-    fakeBackendProvider,
-    MockBackend,
-    BaseRequestOptions
   ],
   bootstrap: [AppComponent]
 })

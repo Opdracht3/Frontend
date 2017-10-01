@@ -2,10 +2,12 @@
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
 import { User } from '../_models/index';
+import { NGXLogger } from 'ngx-logger';
 
 @Injectable()
 export class UserService {
-    constructor(private http: Http) { }
+    constructor(private http: Http,
+        private logger: NGXLogger) { }
 
     getAll() {
         return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
@@ -15,7 +17,8 @@ export class UserService {
         return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
-    create(user: User) {
+    create(user: User) {        
+        this.logger.debug('Register user : ' + user)
         return this.http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());
     }
 
