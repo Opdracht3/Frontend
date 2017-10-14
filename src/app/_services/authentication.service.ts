@@ -2,6 +2,7 @@
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { NGXLogger } from 'ngx-logger';
+import { User } from '../_models/user';
 import 'rxjs/add/operator/map'
 
 @Injectable()
@@ -10,7 +11,7 @@ export class AuthenticationService {
         private logger: NGXLogger) { }
 
     login(username: string, password: string) {
-        return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
+        return this.http.post('/api/authenticate', new User(username, password))
             .map((response: Response) => {            
                 // login successful if there's a jwt token in the response
                 let user = response.json();

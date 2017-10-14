@@ -19,7 +19,7 @@ export class UserService {
 
     create(user: User) {        
         this.logger.debug('Register user : ' + user)
-        return this.http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/api/register', user, this.jwt()).map((response: Response) => response.json());
     }
 
     update(user: User) {

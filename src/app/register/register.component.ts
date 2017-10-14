@@ -2,6 +2,7 @@
 import { Router } from '@angular/router';
 
 import { AlertService, UserService } from '../_services/index';
+import { User } from '../_models/user';
 
 import { NGXLogger } from 'ngx-logger';
 
@@ -12,7 +13,7 @@ import { NGXLogger } from 'ngx-logger';
 })
 
 export class RegisterComponent {
-    model: any = {};
+    user: User = {firstName:null,id:null,lastName:null,passWord:null,userName:null};
     loading = false;
 
     constructor(
@@ -23,8 +24,8 @@ export class RegisterComponent {
 
     register() {
         this.loading = true;
-        this.logger.debug('Register user : ' + this.model)
-        this.userService.create(this.model)
+        this.logger.debug('Register user : ' + this.user)
+        this.userService.create(this.user)
             .subscribe(
                 data => {
                     this.logger.debug('Succes creating user navigate to login')
