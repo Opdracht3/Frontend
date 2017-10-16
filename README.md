@@ -34,4 +34,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 //steps run code from repo
 //docker pull husamay/rps-frontend:0.1
-//docker run husamay/rps-frontend:0.1
+//docker run --name frontend-container -d -p 8080:80 husamay/rps-frontend:0.1
