@@ -12,10 +12,12 @@ pipeline {
            }
         }
         stage('Create Docker Image') {
-           docker.build("tbrewster/frontend-pipeline:${env.BUILD_NUMBER}")       
-        }
-      
+          steps {            
+            docker.build("tbrewster/frontend-pipeline:${env.BUILD_NUMBER}")       
+          }
+        }      
         stage ('Run Application') {
+          steps {
           try {
             // Start database container here
             // sh 'docker run -d --name db -p 8091-8093:8091-8093 -p 11210:11210 arungupta/oreilly-couchbase:latest'
@@ -35,6 +37,7 @@ pipeline {
             //sh 'docker-compose rm db'
           }
         }
+          }
 
     }
 }
