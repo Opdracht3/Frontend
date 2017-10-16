@@ -13,11 +13,8 @@ pipeline {
         }
         stage('Create Docker Image') {
           steps { 
-            script {
-              // def image = docker.build("tbrewster/frontend-pipeline:${env.BUILD_NUMBER}")
-              // image.push()
-            }
-            sh('docker.build("tbrewster/frontend-pipeline:${env.BUILD_NUMBER}")')       
+            docker.build("tbrewster/frontend-pipeline:${env.BUILD_NUMBER}")
+            //sh('docker.build("tbrewster/frontend-pipeline:${env.BUILD_NUMBER}")')       
           }
         }      
         stage ('Run Application') {
