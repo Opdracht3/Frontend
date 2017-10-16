@@ -28,6 +28,7 @@ pipeline {
 
             // Run application using Docker image
             // sh "DB=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' db`"
+            echo 'bla bla'
             // sh "docker run tbrewster/frontend-pipeline:${env.BUILD_NUMBER}"
 
             // Run tests using Maven
