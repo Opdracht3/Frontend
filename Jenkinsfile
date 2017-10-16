@@ -24,7 +24,7 @@ pipeline {
 
             // Run application using Docker image
             // sh "DB=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' db`"
-            sh "docker run -e DB_URI=$DB tbrewster/frontend-pipeline:${env.BUILD_NUMBER}"
+            sh "docker run tbrewster/frontend-pipeline:${env.BUILD_NUMBER}"
 
             // Run tests using Maven
             //dir ('webapp') {
