@@ -12,10 +12,11 @@ pipeline {
            }
         }
         stage('Create Docker Image') {
-          steps {            
-                dir('webapp') {
-                  docker.build("arungupta/docker-jenkins-pipeline:${env.BUILD_NUMBER}")
-                }
+          steps { 
+            script {
+              def image = docker.build("tbrewster/frontend-pipeline:${env.BUILD_NUMBER}")
+              image.push()
+            }
             // sh('docker.build("tbrewster/frontend-pipeline:${env.BUILD_NUMBER}")')       
           }
         }      
