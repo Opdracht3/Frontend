@@ -6,14 +6,17 @@ pipeline {
             steps {
               echo 'Building..'
               nodejs('recent node') {                
-                sh("npm install")
-                sh("npm build .")
+                //sh("npm install")
+                //sh("npm build .")
               }
            }
         }
         stage('Create Docker Image') {
           steps {            
-            sh('docker.build("tbrewster/frontend-pipeline:${env.BUILD_NUMBER}")')       
+                dir('webapp') {
+                  docker.build("arungupta/docker-jenkins-pipeline:${env.BUILD_NUMBER}")
+                }
+            // sh('docker.build("tbrewster/frontend-pipeline:${env.BUILD_NUMBER}")')       
           }
         }      
         stage ('Run Application') {
