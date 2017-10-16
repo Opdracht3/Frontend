@@ -6,8 +6,8 @@ pipeline {
             steps {
               echo 'Building..'
               nodejs('recent node') {                
-                sh("./npm install")
-                sh("./npm build .")
+                sh("npm install")
+                sh("npm build .")
               }
             }
         }
