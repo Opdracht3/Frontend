@@ -14,7 +14,7 @@ pipeline {
         stage('Create Docker Image') {
           steps { 
             // sh('docker.build("tbrewster/frontend-pipeline:${env.BUILD_NUMBER}")')    
-            Script {
+            script {
               def newApp = docker.build "tbrewster/frontend-pipeline:${env.BUILD_NUMBER}"
               newApp.push()
             }
