@@ -14,10 +14,10 @@ pipeline {
         stage('Create Docker Image') {
           steps { 
             //sh('docker.build("Opdracht3/Frontend:hoo")')    
-            script {
-              def newApp = docker.build "opdracht3/frontend"
-              newApp.push()
-            }
+            //script {
+            //  def newApp = docker.build "opdracht3/frontend"
+            //  newApp.push()
+            //}
             sh('docker build opdracht3/frontend')
           }
         }      
