@@ -15,7 +15,7 @@ pipeline {
           steps { 
             //sh('docker.build("Opdracht3/Frontend:hoo")')    
             script {
-              def newApp = docker.build "opdracht3/frontend"
+              def newApp = docker.build "opdracht3/frontend:${env.BUILD_NUMBER}"
               newApp.push()
             }
             //sh('docker build opdracht3/frontend')
