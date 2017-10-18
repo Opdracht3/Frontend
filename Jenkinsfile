@@ -18,7 +18,7 @@ pipeline {
             //  def newApp = docker.build "tbrewster/frontend-pipeline:${env.BUILD_NUMBER}"
             //  newApp.push()
             //}
-            sh('docker build Opdracht3/Frontend:hallo')
+            sh('docker build Opdracht3')
           }
         }      
         stage ('Run Application') {
