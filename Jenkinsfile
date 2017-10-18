@@ -13,12 +13,12 @@ pipeline {
         }
         stage('Create Docker Image') {
           steps { 
-            sh('docker.build("Opdracht3/Frontend")')    
-            //script {
-            //  def newApp = docker.build "tbrewster/frontend-pipeline:${env.BUILD_NUMBER}"
-            //  newApp.push()
-            //}
-            sh('docker build Opdracht3')
+            //sh('docker.build("Opdracht3/Frontend:hoo")')    
+            script {
+              def newApp = docker.build "Opdracht3/Frontend"
+              newApp.push()
+            }
+            sh('docker build Opdracht3/Frontend')
           }
         }      
         stage ('Run Application') {
