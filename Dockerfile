@@ -2,7 +2,7 @@
 
 # COPY dist /usr/share/nginx/html
 
-FROM node:boron
+FROM node:6
 
 WORKDIR /usr/src/app
 
@@ -16,6 +16,6 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 4002
+EXPOSE 8888
 
 CMD [ "npm", "start" ]
