@@ -1,6 +1,6 @@
-// FROM nginx
+# FROM nginx
 
-// COPY dist /usr/share/nginx/html
+# COPY dist /usr/share/nginx/html
 
 FROM node:boron
 
