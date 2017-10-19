@@ -2,7 +2,7 @@
 
 # COPY dist /usr/share/nginx/html
 
-FROM node:6
+FROM node:default
 
 WORKDIR /usr/src/app
 
