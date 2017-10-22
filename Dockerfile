@@ -2,7 +2,11 @@ FROM nginx
 
 COPY dist /usr/share/nginx/html
 
+<<<<<<< HEAD
 #FROM node:default
+=======
+#FROM node
+>>>>>>> a749ebe7d9a9822110cd7cd12876bf3c23609a3e
 
 #WORKDIR /usr/src/app
 
