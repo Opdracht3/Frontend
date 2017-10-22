@@ -2,7 +2,7 @@ FROM nginx
 
 COPY dist /usr/share/nginx/html
 
-#FROM node:default
+#FROM amd64/node
 #WORKDIR /usr/src/app
 
 # Install app dependencies
