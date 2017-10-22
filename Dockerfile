@@ -1,9 +1,9 @@
-#FROM nginx
+FROM nginx
 
-#COPY dist /usr/share/nginx/html
+COPY dist /usr/share/nginx/html
 
-FROM node:boron
-WORKDIR /usr/src/app
+#FROM node:boron
+#WORKDIR /usr/src/app
 
 # Install app dependencies
 #COPY package.json .
