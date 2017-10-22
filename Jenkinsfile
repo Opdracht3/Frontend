@@ -15,7 +15,8 @@ pipeline {
           steps { 
             //sh('docker.build("Opdracht3/Frontend:hoo")')    
             script {
-              def newApp = docker.build "opdracht3/frontend:${env.BUILD_NUMBER}"
+	      sh "cp dist ./tmp-docker-build-context"
+              def newApp = docker.build("opdracht3/frontend:${env.BUILD_NUMBER}", "--build-arg ./tmp-docker-build-context")
               newApp.push()
             }
             //sh('docker build opdracht3/frontend')
