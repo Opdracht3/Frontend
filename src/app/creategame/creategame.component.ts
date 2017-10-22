@@ -4,7 +4,7 @@ import { GamesService } from '../_services/games.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './createGame.component.html'
+  templateUrl: './creategame.component.html'
 })
 export class CreateGame implements OnInit {
   title = 'createGame';
