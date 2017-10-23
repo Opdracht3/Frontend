@@ -10,7 +10,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("opdracht3/frontend c:\jenkins")
+        app = docker.build("opdracht3/frontend 'c:\jenkins'")
     }
   
     stage('Test image') {
