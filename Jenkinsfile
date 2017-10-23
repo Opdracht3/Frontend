@@ -38,10 +38,10 @@ node {
        // 	GitHub-credentials
         //docker.withRegistry('https://github.com', 'GitHub-credentials') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-          sh 'docker tag opdracht3/frontend tbrewster/frontend:${env.BUILD_NUMBER}'
-          sh 'docker push tbrewster/frontend:${env.BUILD_NUMBER}'
+          sh 'docker tag opdracht3/frontend tbrewster/frontend:1'
+          sh 'docker push tbrewster/frontend:1'
             //app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            //app.push("latest")
         }
     }
 }
