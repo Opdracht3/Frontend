@@ -22,6 +22,7 @@ pipeline {
               //def newApp = docker.build("tbrewster/dinf3:${env.BUILD_NUMBER}")
               // def newApp = docker.build("opdracht3/frontend:${env.BUILD_NUMBER}") tbrewster/dinf3
               //newApp.push()
+            }
           }
         }      
         stage ('Run Application') {
