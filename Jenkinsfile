@@ -13,10 +13,11 @@ pipeline {
         }
         stage('Create Docker Image') {
           steps { 
-            //sh('docker.build("Opdracht3/Frontend:hoo")')    
             script {
-	       //sh "cp dist ./tmp-docker-build-context"
-              def newApp = docker.build("opdracht3/frontend:${env.BUILD_NUMBER}")
+              //def newApp = docker.tag()
+              def newApp = docker.login("-u=tbrewster -p=ARgY4C6y)
+              newApp.build("tbrewster/dinf3:${env.BUILD_NUMBER}")
+              // def newApp = docker.build("opdracht3/frontend:${env.BUILD_NUMBER}") tbrewster/dinf3
               newApp.push()
             }
             //sh('docker build opdracht3/frontend')
