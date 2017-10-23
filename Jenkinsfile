@@ -10,7 +10,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("opdracht3/frontend", "-v my-vol:/app")
+        app = docker.build("opdracht3/frontend")
     }
   
     stage('Test image') {
