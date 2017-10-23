@@ -19,7 +19,7 @@ node {
 
       
       sh 'docker run -t --name demo opdracht3/frontend &'
-      sh 'wait 5s'
+      sh 'sleep 5s'
        sh 'docker exec -t demo bash -c \'ls -l\''
       
       
