@@ -39,10 +39,11 @@ node {
           //available as an env variable, but will be masked if you try to print it out any which way
           sh 'echo $PASSWORD'
           echo "${env.USERNAME}"
-      }
+  
       
         sh 'docker login -u=${env.USERNAME} -p=$PASSWORD'
         sh 'docker tag opdracht3/frontend tbrewster/frontend:${env.BUILD_NUMBER}'
         sh 'docker push tbrewster/frontend:${env.BUILD_NUMBER}'
+            }
     }
 }
