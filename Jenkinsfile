@@ -14,8 +14,9 @@ pipeline {
         stage('Create Docker Image') {
           steps { 
             script {
-              docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+              docker.withRegistry('https://registry.hub.docker.com', 'docker-hb-credentials') {
                  def newApp = docker.build("tbrewster/dinf3:${env.BUILD_NUMBER}")
+                 newApp.push()
                  newApp.push("${env.BUILD_NUMBER}")
                  newApp.push("latest")
               }
