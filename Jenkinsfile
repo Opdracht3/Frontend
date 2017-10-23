@@ -6,8 +6,8 @@ pipeline {
             steps {
               echo 'Building..'
               nodejs('recent node') {                
-                sh("npm install")
-                sh("npm build .")
+                // sh("npm install")
+                // sh("npm build .")
               }
            }
         }
@@ -15,8 +15,8 @@ pipeline {
           steps { 
             //sh('docker.build("Opdracht3/Frontend:hoo")')    
             script {
-	      sh "cp dist ./tmp-docker-build-context"
-              def newApp = docker.build("opdracht3/frontend:${env.BUILD_NUMBER}", "--build-arg ./tmp-docker-build-context")
+	       //sh "cp dist ./tmp-docker-build-context"
+              def newApp = docker.build("opdracht3/frontend:${env.BUILD_NUMBER}")
               newApp.push()
             }
             //sh('docker build opdracht3/frontend')
