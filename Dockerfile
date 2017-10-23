@@ -3,7 +3,9 @@
 #COPY dist /usr/share/nginx/html
 
 FROM node:boron
-#WORKDIR /usr/src/app
+
+ECHO hallllo
+WORKDIR .
 
 # Install app dependencies
 COPY package.json .
