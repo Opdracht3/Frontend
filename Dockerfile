@@ -4,7 +4,11 @@
 
 FROM node:boron
 
-#WORKDIR .
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+ADD . /app
 
 # Install app dependencies
 #COPY package.json .
