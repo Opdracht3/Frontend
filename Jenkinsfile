@@ -42,8 +42,8 @@ node {
   
       
         sh "docker login -u=${env.USERNAME} -p=$PASSWORD"
-        sh 'docker tag opdracht3/frontend tbrewster/frontend:${env.BUILD_NUMBER}'
-        sh 'docker push tbrewster/frontend:${env.BUILD_NUMBER}'
+        sh "docker tag opdracht3/frontend tbrewster/frontend:${env.BUILD_NUMBER}"
+        sh "docker push tbrewster/frontend:${env.BUILD_NUMBER}"
             }
     }
 }
