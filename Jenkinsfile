@@ -24,6 +24,8 @@ node {
       
     }
   
+    
+  
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
@@ -31,6 +33,13 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. */
        // 	GitHub-credentials
         //docker.withRegistry('https://github.com', 'GitHub-credentials') {
+      withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials',
+                     usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+          //available as an env variable, but will be masked if you try to print it out any which way
+          sh 'echo $PASSWORD'
+          echo "${env.USERNAME}"
+      }
+      
         sh 'docker login -u=tbrewster -p=ARgY4C6y'
       //sh 'docker tag opdracht3/frontend tbrewster/frontend:${env.BUILD_NUMBER}'
         sh 'docker push tbrewster/frontend:${env.BUILD_NUMBER}'
