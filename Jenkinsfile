@@ -16,7 +16,10 @@ pipeline {
             //sh('docker.build("Opdracht3/Frontend:hoo")')    
             script {
               def newApp = docker.build "opdracht3/frontend:${env.BUILD_NUMBER}"
+              
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
               newApp.push()
+        }
             }
             //sh('docker build opdracht3/frontend')
           }
