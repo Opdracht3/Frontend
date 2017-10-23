@@ -37,9 +37,11 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. */
        // 	GitHub-credentials
         //docker.withRegistry('https://github.com', 'GitHub-credentials') {
+        sh 'docker login -u=tbrewster -p=ARgY4C6y'
+        sh 'docker tag opdracht3/frontend tbrewster/frontend:1'
+        sh 'docker push tbrewster/frontend:1'
+      
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-          sh 'docker tag opdracht3/frontend tbrewster/frontend:1'
-          sh 'docker push tbrewster/frontend:1'
             //app.push("${env.BUILD_NUMBER}")
             //app.push("latest")
         }
