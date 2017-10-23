@@ -1,5 +1,4 @@
-pipeline {
-    agent any  
+node {
     stage('Build') {
           echo 'Building..'
           nodejs('recent node') {                
