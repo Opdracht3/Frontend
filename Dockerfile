@@ -4,7 +4,6 @@
 
 FROM node:boron
 
-ECHO hallllo
 WORKDIR .
 
 # Install app dependencies
