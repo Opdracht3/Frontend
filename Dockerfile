@@ -4,18 +4,18 @@
 
 FROM node:boron
 
-WORKDIR .
+#WORKDIR .
 
 # Install app dependencies
-COPY package.json .
+#COPY package.json .
 # For npm@5 or later, copy package-lock.json as well
-COPY package.json package-lock.json ./
+#COPY package.json package-lock.json ./
 
-RUN npm install
+#RUN npm install
 
 # Bundle app source
-COPY . .
+#COPY . .
 
-EXPOSE 8888
+#EXPOSE 8888
 
-CMD [ "npm", "start" ]
+#CMD [ "npm", "start" ]
