@@ -9,7 +9,7 @@ node {
     stage('Create Docker Image') {
           docker.withRegistry('docker.io', 'docker-hub-credentials') {
              //def newApp = docker.build("tbrewster/dinf3:${env.BUILD_NUMBER}")
-             def newApp = docker.build("tbrewster/dinf3")
+             def newApp = docker.build("first-app")
              newApp.push()
              newApp.push("${env.BUILD_NUMBER}")
              newApp.push("latest")
