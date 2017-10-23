@@ -21,6 +21,7 @@ node {
       sh 'docker run -t --rm --name demo opdracht3/frontend &'
       sh 'sleep 5s'
       sh 'docker exec -t demo bash -c \'ls -l\''
+      sh 'docker stop demo'
       
     }
   
@@ -41,7 +42,7 @@ node {
       }
       
         sh 'docker login -u=tbrewster -p=ARgY4C6y'
-      //sh 'docker tag opdracht3/frontend tbrewster/frontend:${env.BUILD_NUMBER}'
+        sh 'docker tag opdracht3/frontend tbrewster/frontend:${env.BUILD_NUMBER}'
         sh 'docker push tbrewster/frontend:${env.BUILD_NUMBER}'
     }
 }
