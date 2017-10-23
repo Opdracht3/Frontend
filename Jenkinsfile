@@ -36,9 +36,11 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
        // 	GitHub-credentials
-        docker.withRegistry('https://github.com', 'GitHub-credentials') {
-        //docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("${env.BUILD_NUMBER}")
+        //docker.withRegistry('https://github.com', 'GitHub-credentials') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+          sh 'docker tag opdracht3/frontend tbrewster/frontend:${env.BUILD_NUMBER}'
+          sh 'docker push tbrewster/frontend:${env.BUILD_NUMBER}'
+            //app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
     }
