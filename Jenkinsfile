@@ -42,7 +42,7 @@ node {
         sh 'docker push tbrewster/frontend:1'
       
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-          
+          sh 'echo ${usr}'    
         sh 'docker tag opdracht3/frontend tbrewster/frontend:1'
         sh 'docker push tbrewster/frontend:1'
           
