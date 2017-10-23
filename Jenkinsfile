@@ -7,7 +7,7 @@ node {
           }
     }
     stage('Create Docker Image') {
-          docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+          docker.withRegistry('docker.io', 'docker-hub-credentials') {
              //def newApp = docker.build("tbrewster/dinf3:${env.BUILD_NUMBER}")
              def newApp = docker.build("tbrewster/dinf3")
              newApp.push()
