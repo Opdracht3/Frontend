@@ -21,7 +21,7 @@ node {
       sh 'docker run -t --rm --name demo opdracht3/frontend &'
       sh 'sleep 5s'
       sh 'docker exec -t demo bash -c \'ls -l\''
-      sh 'docker stop demo'
+      // sh 'docker stop demo'
       
     }
     
