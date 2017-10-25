@@ -3,6 +3,7 @@
 #COPY dist /usr/share/nginx/html
 
 FROM node:boron
+Run sudo apt-get install curl
 
 # Set the working directory to /app
 WORKDIR  /usr/src/app
