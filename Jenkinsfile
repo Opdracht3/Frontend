@@ -17,33 +17,24 @@ node {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
       
-      sh 'docker rm demo || true'
+      // sh 'docker rm demo || true'
       sh 'docker run -t --rm --name demo opdracht3/frontend &'
       sh 'sleep 5s'
       sh 'docker exec -t demo bash -c \'ls -l\''
       sh 'docker stop demo'
       
     }
-  
     
-  
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-       // 	GitHub-credentials
-        //docker.withRegistry('https://github.com', 'GitHub-credentials') {
       withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials',
-                     usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-          //available as an env variable, but will be masked if you try to print it out any which way
-          sh 'echo $PASSWORD'
-          echo "${env.USERNAME}"
-  
-      
+                     usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {      
         sh "docker login -u=${env.USERNAME} -p=$PASSWORD"
         sh "docker tag opdracht3/frontend tbrewster/frontend:${env.BUILD_NUMBER}"
         sh "docker push tbrewster/frontend:${env.BUILD_NUMBER}"
-            }
+      }
     }
 }
