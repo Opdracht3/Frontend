@@ -4,7 +4,7 @@ node {
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
         checkout scm
-        sh 'curl -i localhost:8080'
+        curl -i 'localhost:8080'
     }
 
     stage('Build image') {
