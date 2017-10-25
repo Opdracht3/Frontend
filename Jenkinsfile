@@ -17,7 +17,7 @@ node {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
       
-      sh 'docker run -t --rm --name demo opdracht3/frontend'
+      sh 'docker run -t --rm --name demo opdracht3/frontend &'
       sh 'sleep 5s'
       sh 'docker exec -t demo bash -c \'ls -l\''
       
