@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        // app = docker.build("opdracht3/frontend")
+        app = docker.build("opdracht3/frontend")
     }
   
     stage('Test image') {
@@ -22,7 +22,7 @@ node {
       sh 'docker run -t --rm --name demo opdracht3/frontend &'
       sh 'sleep 5s'
       sh 'docker exec -t demo bash -c \'ls -l\''
-      sh 'docker stop demo' 
+      // sh 'docker stop demo' 
       
     }
     
