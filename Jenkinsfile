@@ -4,7 +4,6 @@ node {
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
         checkout scm
-        //curl -i 'localhost:8080'
     }
 
     stage('Build image') {
@@ -19,10 +18,10 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
       
       sh 'docker rm demo || true'
-      sh 'docker run -t --rm --name demo opdracht3/frontend &'
+      sh 'docker run -t --rm --name frontend-container opdracht3/frontend &'
       sh 'sleep 5s'
-      sh 'docker exec -t demo bash -c \'ls -l\''
-      // sh 'docker stop demo' 
+      sh 'docker exec -t frontend-container bash -c \'ls -l\''
+      sh 'docker stop frontend-container' 
       
     }
     
@@ -35,7 +34,7 @@ node {
                      usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {      
         sh "docker login -u=${env.USERNAME} -p=$PASSWORD"
         sh "docker tag opdracht3/frontend tbrewster/frontend:${env.BUILD_NUMBER}"
-        //sh "docker push tbrewster/frontend:${env.BUILD_NUMBER}"
+        sh "docker push tbrewster/frontend:${env.BUILD_NUMBER}"
       }
     }
 }
