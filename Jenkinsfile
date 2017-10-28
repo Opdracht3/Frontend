@@ -15,7 +15,7 @@ node {
         sh("npm build")
       }
     }
-    
+
     stage('Test') {
       steps {
         sh("npm test")
@@ -55,3 +55,4 @@ node {
       }
     }
   }
+}
