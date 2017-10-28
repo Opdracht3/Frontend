@@ -34,15 +34,16 @@ pipeline {
 
 
     stage('Test image') {
-      /* Ideally, we would run a test framework against our image.
-       * For this example, we're using a Volkswagen-type approach ;-) */
+      steps {
+        /* Ideally, we would run a test framework against our image.
+         * For this example, we're using a Volkswagen-type approach ;-) */
 
-      sh 'sudo docker rm demo || true'
-      sh 'sudo docker run -t --rm --name frontend-container opdracht3/frontend &'
-      sh 'sleep 5s'
-      sh 'sudo docker exec -t frontend-container bash -c \'ls -l\''
-      sh 'sudo docker stop frontend-container'
-
+        sh 'sudo docker rm demo || true'
+        sh 'sudo docker run -t --rm --name frontend-container opdracht3/frontend &'
+        sh 'sleep 5s'
+        sh 'sudo docker exec -t frontend-container bash -c \'ls -l\''
+        sh 'sudo docker stop frontend-container'
+      }
     }
 
 
