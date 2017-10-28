@@ -2,14 +2,14 @@ pipeline {
   agent any
 
   stages {
-    stage('Build') {
+    stage('install') {
       steps {
-        echo 'Building..'
+        echo 'install..'
         sh("npm install")
       }
     }
 
-    stage('test') {
+    stage('build') {
       steps {
         echo 'Building..'
         sh("npm build")
@@ -18,7 +18,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh("npm test")
+        sh("ng test --progress false --watch false")
       }
     }
 
