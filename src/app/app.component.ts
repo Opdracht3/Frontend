@@ -8,4 +8,7 @@ import '../assets/css/app.css';
     templateUrl: 'app.component.html'
 })
 
-export class AppComponent { }
+export class AppComponent {
+    public title = 'rock-paper-scissors';
+    public appVersion = 'v0.0.1';
+ }

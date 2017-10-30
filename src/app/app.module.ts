@@ -11,7 +11,7 @@ import { GamesService, AlertService, AuthenticationService, UserService } from '
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/index';
-import { Gamelist } from './gamelist/gamelist.component';
+import { GamelistComponent } from './gamelist/gamelist.component';
 import { CreateGame } from './creategame/creategame.component';
 import { Game } from './game/game.component';
 
@@ -27,16 +27,16 @@ import { LoggerModule, LoggerConfig, NgxLoggerLevel } from 'ngx-logger';
 
 
 @NgModule({
-  imports: [ 
-    BrowserModule, 
-    FormsModule, 
+  imports: [
+    BrowserModule,
+    FormsModule,
     HttpModule,
     AppRoutingModule,
     LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.DEBUG} as LoggerConfig)
   ],
   declarations: [
     LoginComponent,
-    Gamelist,
+    GamelistComponent,
     Game,
     CreateGame,
     AppComponent,

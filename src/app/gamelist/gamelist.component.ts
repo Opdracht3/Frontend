@@ -7,15 +7,13 @@ import { User } from '../_models/index';
   selector: 'app-root',
   templateUrl: './gamelist.component.html'
 })
-export class Gamelist implements OnInit {
+export class GamelistComponent implements OnInit {
   title = 'gameList';
-  games: Gamelist[];
+  games: GamelistComponent[];
   user = JSON.parse(localStorage.getItem('currentUser')) as User;
-   
-   constructor(private router: Router, private gamesService: GamesService) {
-  
-   } 
-  
+  constructor(private router: Router, private gamesService: GamesService) {
+  }
+
    ngOnInit() {
      this.gamesService.getGames().then(games => this.games = games);
    }
