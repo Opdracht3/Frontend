@@ -10,24 +10,24 @@ export class UserService {
         private logger: NGXLogger) { }
 
     getAll() {
-        return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
+        return this.http.get('/users', this.jwt()).map((response: Response) => response.json());
     }
 
     getById(id: number) {
-        return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.get('/users/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
-    create(user: User) {        
+    create(user: User) {
         this.logger.debug('Register user : ' + user)
-        return this.http.post('/api/register', user, this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/register', user, this.jwt()).map((response: Response) => response.json());
     }
 
     update(user: User) {
-        return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
+        return this.http.put('/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
     }
 
     delete(id: number) {
-        return this.http.delete('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.delete('/users/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
     // private helper methods
