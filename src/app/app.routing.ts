@@ -11,7 +11,7 @@ import { Game } from './game/game.component';
 const appRoutes: Routes =
 [ { path: 'games', component: GamelistComponent }, // , canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent},
-  { path: 'create', component: CreateGame  }, // , canActivate: [AuthGuard] },
+  { path: 'create', component: CreateGame  }, // , canActivate: [AuthGuard] } ,
   { path: 'register', component: RegisterComponent},
   { path: 'join', component: Game },
   // otherwise redirect to home
