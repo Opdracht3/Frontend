@@ -15,7 +15,7 @@ import { Game } from '../game/game.component';
 export class GamesService {
 
   constructor(private http: Http) {
- 
+
   }
 
 
