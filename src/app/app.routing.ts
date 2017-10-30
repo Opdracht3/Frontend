@@ -6,16 +6,16 @@ import { GamelistComponent } from './gamelist/gamelist.component';
 import { CreateGame } from './creategame/creategame.component';
 import { RegisterComponent } from './register/register.component';
 import { Game } from './game/game.component';
-import { AuthGuard } from './_guards/index';
+// import { AuthGuard } from './_guards/index';
 
 const appRoutes: Routes =
-[ { path: 'games', component: GamelistComponent , canActivate: [AuthGuard] },
+[ { path: 'games', component: GamelistComponent }, // , canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent},
-  { path: 'create', component: CreateGame , canActivate: [AuthGuard] },
+  { path: 'create', component: CreateGame  }, // , canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent},
   { path: 'join', component: Game },
   // otherwise redirect to home
-  { path: '',   redirectTo: 'login', pathMatch: 'full' , canActivate: [AuthGuard] },
+  { path: '',   redirectTo: 'login', pathMatch: 'full'  }, // , canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'login' }
 ];
 
