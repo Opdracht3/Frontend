@@ -12,13 +12,13 @@ pipeline {
     stage('build') {
       steps {
         echo 'Building..'
-        sh("npm build")
+        sh("npm run build")
       }
     }
 
     stage('Test') {
       steps {
-        sh("npm test")
+        sh("npm run test")
       }
     }
 
@@ -28,8 +28,8 @@ pipeline {
         echo 'Buildin docker.'
         withCredentials([usernamePassword(credentialsId: 'docker-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh("sudo docker login -u=$USERNAME -p=$PASSWORD")
-          sh("sudo docker build . --tag husamay/rps-frontend:0.1.${BUILD_NUMBER}")
         }
+        sh("sudo docker build . --tag husamay/rps-frontend:0.1.${BUILD_NUMBER}")
       }
     }
 
@@ -51,8 +51,9 @@ pipeline {
     stage('Deploy Docker') {
       steps {
         echo 'Deploying 0.1.${BUILD_NUMBER} to repo....'
-        sh("sudo docker push husamay/rps-frontend:0.1 .${BUILD_NUMBER}")
+        sh("sudo docker push husamay/rps-frontend:0.1.${BUILD_NUMBER}")
         echo 'Deploying latest tag to repo....'
+        sh("sudo docker tag husamay/rps-frontend:0.1.${BUILD_NUMBER} husamay/rps-frontend:latest")
         sh("sudo docker push husamay/rps-frontend:latest")
       }
     }
