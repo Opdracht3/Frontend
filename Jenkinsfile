@@ -54,7 +54,7 @@ pipeline {
         echo 'Deploying 0.1.${BUILD_NUMBER} to repo....'
         sh("sudo docker push husamay/rps-frontend:0.1.${BUILD_NUMBER}")
         echo 'Deploying latest tag to repo....'
-        sh("sudo docker tag husamay/rps-frontend:0.1.${BUILD_NUMBER}")
+        sh("sudo docker tag husamay/rps-frontend:0.1.${BUILD_NUMBER} husamay/rps-frontend:latest")
         sh("sudo docker push husamay/rps-frontend:latest")
       }
     }
