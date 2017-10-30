@@ -18,7 +18,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh("npm test")
+        sh("npm run test")
       }
     }
 
@@ -28,8 +28,8 @@ pipeline {
         echo 'Buildin docker.'
         withCredentials([usernamePassword(credentialsId: 'docker-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh("sudo docker login -u=$USERNAME -p=$PASSWORD")
-          sh("sudo docker build . --tag husamay/rps-frontend:0.1.${BUILD_NUMBER}")
         }
+        sh("sudo docker build . --tag husamay/rps-frontend:0.1.${BUILD_NUMBER}")
       }
     }
 
