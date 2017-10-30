@@ -4,7 +4,7 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { GamelistComponent } from '../gamelist/gamelist.component';
+import { Gamelist } from '../gamelist/gamelist.component';
 import { CreateGame } from '../creategame/creategame.component';
 import { Game } from '../game/game.component';
 
@@ -15,18 +15,18 @@ import { Game } from '../game/game.component';
 export class GamesService {
 
   constructor(private http: Http) {
-
+ 
   }
 
 
-  private gameUrl = '/api/games';
-  private createUrl = '/api/create/';
+  private gameUrl = '/games';
+  private createUrl = '/create/';
   private joinUrl = '/join';
 
-  getGames(): Promise<GamelistComponent[]> {
+  getGames(): Promise<Gamelist[]> {
     return this.http.get(this.gameUrl)
       .toPromise()
-      .then(response => response.json() as GamelistComponent[])
+      .then(response => response.json() as Gamelist[])
       .catch(this.handleError);
   }
 
@@ -38,7 +38,7 @@ export class GamesService {
   }
 
   joinGame(gameName): Promise<Game> {
-    return this.http.get('api/' + gameName + this.createUrl)
+    return this.http.get("" + gameName + this.createUrl)
       .toPromise()
       .then(response => response.json() as Game)
       .catch(this.handleError);
