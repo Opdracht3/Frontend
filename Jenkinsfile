@@ -2,12 +2,6 @@ pipeline {
   agent any
 
   stages {
-    stage('clean') {
-      steps {
-        echo 'install..'
-        sh("npm clean")
-      }
-    }
 
     stage('install') {
       steps {
