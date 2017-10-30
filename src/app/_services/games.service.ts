@@ -20,8 +20,8 @@ export class GamesService {
 
 
   private gameUrl = 'http://localhost:4000/games';
-  private createUrl = '/create/';
-  private joinUrl = '/join';
+  private createUrl = 'http://localhost:4000/create/';
+  private joinUrl = 'http://localhost:4000/join';
 
   getGames(): Promise<GamelistComponent[]> {
     return this.http.get(this.gameUrl)
