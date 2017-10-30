@@ -19,7 +19,7 @@ export class GamesService {
   }
 
 
-  private gameUrl = '/localhost:4000/games';
+  private gameUrl = 'http://localhost:4000/games';
   private createUrl = '/create/';
   private joinUrl = '/join';
 
