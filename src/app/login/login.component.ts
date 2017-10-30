@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
         this.logger.debug('Logout user')
 
         // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';        
-        this.logger.debug('Change returnUrl')
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        this.logger.debug('Change returnUrl');
     }
 
     login() {
